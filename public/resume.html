@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Harshit Kumar - Resume</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 12mm 15mm;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+      color: #1e293b;
+      line-height: 1.35;
+      font-size: 10pt;
+      background: #fff;
+    }
+    .header {
+      text-align: center;
+      border-bottom: 2px solid #8b5cf6;
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+    }
+    .name {
+      font-size: 20pt;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: #0f172a;
+    }
+    .contact {
+      margin-top: 4px;
+      font-size: 9pt;
+      color: #475569;
+    }
+    .contact span {
+      margin: 0 5px;
+    }
+    .section-title {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #6d28d9;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 2px;
+      margin-top: 10px;
+      margin-bottom: 6px;
+    }
+    .summary {
+      font-size: 9.5pt;
+      color: #334155;
+      text-align: justify;
+    }
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-top: 6px;
+    }
+    .item-title {
+      font-weight: 700;
+      font-size: 10pt;
+      color: #0f172a;
+    }
+    .item-subtitle {
+      font-weight: 600;
+      font-size: 9.5pt;
+      color: #475569;
+      font-style: italic;
+    }
+    .item-date {
+      font-size: 8.5pt;
+      font-weight: 600;
+      color: #64748b;
+    }
+    .item-location {
+      font-size: 8.5pt;
+      color: #64748b;
+    }
+    ul {
+      margin-top: 3px;
+      padding-left: 16px;
+    }
+    li {
+      font-size: 8.8pt;
+      color: #334155;
+      margin-bottom: 2.5px;
+      text-align: justify;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      row-gap: 3px;
+      font-size: 9pt;
+      margin-top: 4px;
+    }
+    .skill-label {
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .skill-value {
+      color: #334155;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="name">HARSHIT KUMAR</div>
+    <div class="contact">
+      Patna, Bihar / Noida, UP <span>•</span>
+      +91-8210275428 <span>•</span>
+      harshitt9905@gmail.com <span>•</span>
+      LinkedIn: harshit-kumar-dev <span>•</span>
+      GitHub: harshit9905
+    </div>
+  </div>
+
+  <div class="section-title">Professional Summary</div>
+  <p class="summary">
+    Full-Stack Developer with 1+ year of experience building and maintaining a production multi-tenant HRMS SaaS using Vue 3, Nuxt 3, React, Next.js, Laravel, and MySQL. Delivers features end to end: requirement analysis, REST/JSON:API development, database design, and optimization. Strong in reusable component design, performance engineering (90% query optimization), and tenant-scoped data validation.
+  </p>
+
+  <div class="section-title">Experience</div>
+  <div class="item-header">
+    <span class="item-title">Appfoster</span>
+    <span class="item-date">April 2026 – Present</span>
+  </div>
+  <div class="item-header" style="margin-top: 0;">
+    <span class="item-subtitle">Associate Software Engineer</span>
+    <span class="item-location">Noida, Uttar Pradesh</span>
+  </div>
+  <ul>
+    <li>Build and maintain a production multi-tenant HRMS SaaS (Nuxt 3, Vue 3, Pinia, React, Next.js, Laravel, JSON:API, MySQL/MariaDB) covering employee management, leave, holidays, attendance, time tracking, and payroll.</li>
+    <li>Built an organization-wide data completeness report: missing-field detection, filtering, sorting, pagination, Excel/PDF export, and bulk reminder notifications with last-reminder tracking.</li>
+    <li>Built tenant management features in the HRMS operations dashboard (React, Next.js, Laravel JSON:API): edit tenant details and view per-tenant employee counts.</li>
+    <li>Implemented an automated subscription lifecycle: "Due" badge as a plan nears expiry, "Overdue" for 3 days after expiry, then automatic tenant account suspension.</li>
+    <li>Developed a support ticketing workflow: tenants submit issues with severity (Critical/High/Medium/Low), which are received in the Ops dashboard for review, reply, and acknowledgment.</li>
+    <li>Engineered a localized AI content-generation feature using Vue/Nuxt, Laravel, and LLM (Gemini API), with a key-based prompt architecture that auto-populates form fields in each user's preferred language.</li>
+    <li>Built reusable Vue components removing duplicated code across multiple modules and optimized APIs and database queries, reducing response time by 90% on Employee working day Report.</li>
+    <li>Implemented tenant-scoped validation to block unauthorized cross-tenant operations and protect organizational data.</li>
+  </ul>
+
+  <div class="item-header" style="margin-top: 6px;">
+    <span class="item-title">Anyintech</span>
+    <span class="item-date">Jan 2025 – Jul 2025</span>
+  </div>
+  <div class="item-header" style="margin-top: 0;">
+    <span class="item-subtitle">Backend Developer Intern</span>
+    <span class="item-location">Bengaluru, Karnataka</span>
+  </div>
+  <ul>
+    <li>Built backend modules in Java, Spring Boot, Spring MVC, Hibernate, and MySQL using a layered architecture.</li>
+    <li>Implemented product features: category filtering, search, and image uploads. Set up GitHub-to-Render auto-deployment (CI/CD).</li>
+  </ul>
+
+  <div class="section-title">Projects</div>
+  <div class="item-header">
+    <span class="item-title">E-Commerce Management System</span>
+    <span class="item-date">Dec 2025 – Feb 2026</span>
+  </div>
+  <div class="item-subtitle" style="font-size: 8.5pt; color: #6d28d9;">Java, Spring Boot, Spring Security, Hibernate, MySQL, Render</div>
+  <ul>
+    <li>Built role-based authentication and authorization, product CRUD and image uploads, admin user management, order processing, email notifications, and secure password reset. Deployed on Render with CI/CD.</li>
+  </ul>
+
+  <div class="item-header" style="margin-top: 4px;">
+    <span class="item-title">REST-Based Job Portal Backend System</span>
+    <span class="item-date">Nov 2025</span>
+  </div>
+  <div class="item-subtitle" style="font-size: 8.5pt; color: #6d28d9;">Java, Spring Boot, Hibernate/JPA, MySQL, Postman</div>
+  <ul>
+    <li>Developed REST APIs for job-listing CRUD and search operations using layered architecture; tested and verified endpoints with Postman.</li>
+  </ul>
+
+  <div class="section-title">Technical Skills</div>
+  <div class="skills-grid">
+    <span class="skill-label">Languages:</span>
+    <span class="skill-value">Java, PHP, JavaScript (ES6+), SQL</span>
+    <span class="skill-label">Frontend:</span>
+    <span class="skill-value">React 19, Vue.js, Nuxt 3, Next.js, Pinia, HTML5, CSS3, Tailwind CSS</span>
+    <span class="skill-label">Backend:</span>
+    <span class="skill-value">Laravel, Laravel JSON:API, REST APIs, Spring Boot, Spring MVC, Spring Security, Hibernate/JPA</span>
+    <span class="skill-label">Databases:</span>
+    <span class="skill-value">MySQL, MariaDB, Database Migrations, Query Optimization</span>
+    <span class="skill-label">AI & LLM:</span>
+    <span class="skill-value">Google Gemini API, Prompt Engineering, Prompt Templating, Localized Output</span>
+    <span class="skill-label">Tools & Practices:</span>
+    <span class="skill-value">Git, GitHub, Postman, Render, API Debugging, Reusable Components, Multi-Tenant Architecture</span>
+  </div>
+
+  <div class="section-title">Education & Certifications</div>
+  <div class="item-header">
+    <span class="item-title">Marwadi University (MEFGI) — B.E. in Computer Science and Engineering</span>
+    <span class="item-date">2021 – 2025</span>
+  </div>
+  <div style="font-size: 8.5pt; color: #475569; margin-top: 1px;">
+    CGPA: <strong>7.89 / 10</strong> | Rajkot, Gujarat
+  </div>
+  <div style="font-size: 8.5pt; color: #475569; margin-top: 3px;">
+    <strong>Certifications:</strong> Java Full Stack Developer – CODEZERIA (Mar 2024 – Sep 2024) | Information Security Education Awareness – MeitY
+  </div>
+</body>
+</html>
