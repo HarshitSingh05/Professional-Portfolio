@@ -14,9 +14,9 @@ export const personalInfo = {
     email: 'harshitt9905@gmail.com',
     phone: '+91-8210275428',
     location: 'Noida, Uttar Pradesh / Patna, Bihar, India',
-    github: 'https://github.com/harshit9905',
-    linkedin: 'https://linkedin.com/in/harshit-kumar-dev',
-    leetcode: 'https://leetcode.com',
+    github: 'https://github.com/HarshitSingh05',
+    linkedin: 'https://www.linkedin.com/in/harshit-kumar-7b863a222/',
+    leetcode: 'https://leetcode.com/u/8210275428/',
     availability: 'Available for full-time opportunities'
   },
   education: {

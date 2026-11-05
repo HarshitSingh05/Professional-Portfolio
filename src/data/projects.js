@@ -48,7 +48,7 @@ export const projects = [
     technologies: ['Java', 'Spring Boot', 'Spring Security', 'Hibernate/JPA', 'MySQL', 'Render'],
     icon: 'fa-solid fa-cart-shopping',
     accent: 'mint',
-    githubUrl: 'https://github.com/harshit9905',
+    githubUrl: 'https://github.com/HarshitSingh05',
     liveUrl: null,
     isConfidential: false,
     metrics: [
@@ -75,7 +75,7 @@ export const projects = [
     technologies: ['Java', 'Spring Boot', 'Hibernate/JPA', 'MySQL', 'Postman'],
     icon: 'fa-solid fa-briefcase',
     accent: 'purple',
-    githubUrl: 'https://github.com/harshit9905',
+    githubUrl: 'https://github.com/HarshitSingh05',
     liveUrl: null,
     isConfidential: false,
     metrics: [
@@ -103,7 +103,7 @@ export const projects = [
     technologies: ['React 19', 'JavaScript', 'Vite', 'Tailwind CSS 4', 'Motion', 'EmailJS'],
     icon: 'fa-solid fa-laptop-code',
     accent: 'mint',
-    githubUrl: 'https://github.com/harshit9905/harshit-kumar-portfolio',
+    githubUrl: 'https://github.com/HarshitSingh05/harshit-kumar-portfolio',
     liveUrl: '#',
     isConfidential: false,
     metrics: [

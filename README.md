@@ -94,7 +94,7 @@ Designed specifically for hiring managers, recruiters, and engineering leads to 
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/harshit-kumar-portfolio.git
+git clone https://github.com/HarshitSingh05/harshit-kumar-portfolio.git
 cd harshit-kumar-portfolio
 ```
 
@@ -146,7 +146,7 @@ The portfolio is fully configured for zero-configuration deployment to [Vercel](
    git add .
    git commit -m "feat: initial commit of Harshit Kumar developer portfolio"
    git branch -M main
-   git remote add origin https://github.com/<your-github-username>/harshit-kumar-portfolio.git
+   git remote add origin https://github.com/HarshitSingh05/harshit-kumar-portfolio.git
    git push -u origin main
    ```
 2. Log in to [Vercel](https://vercel.com) and click **"Add New Project"**.
