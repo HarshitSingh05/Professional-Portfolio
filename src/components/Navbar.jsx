@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import ThemeToggle from './ThemeToggle'
+import resumePdf from '../assets/resume.pdf'
 
 const navLinks = [
   { name: 'Home', href: '#home', icon: 'fa-solid fa-house' },
@@ -16,7 +17,6 @@ export default function Navbar({ theme, toggleTheme }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
 
-  // Handle scroll detection and active section spying
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
@@ -38,7 +38,6 @@ export default function Navbar({ theme, toggleTheme }) {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Close mobile menu on resize to desktop
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
@@ -49,7 +48,6 @@ export default function Navbar({ theme, toggleTheme }) {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = 'hidden'
@@ -78,12 +76,13 @@ export default function Navbar({ theme, toggleTheme }) {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'glass-nav shadow-lg shadow-black/10 py-3'
+          ? 'glass-nav shadow-lg shadow-black/5 dark:shadow-black/20 py-3'
           : 'bg-transparent py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
+          
           {/* Logo */}
           <a
             href="#home"
@@ -92,14 +91,14 @@ export default function Navbar({ theme, toggleTheme }) {
             aria-label="Harshit Kumar Home"
           >
             <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-purple-600 via-purple-700 to-emerald-500 p-[2px] shadow-md shadow-purple-500/20 group-hover:shadow-purple-500/40 transition-all duration-300">
-              <div className="w-full h-full bg-slate-950 dark:bg-slate-950 light:bg-white rounded-[10px] flex items-center justify-center">
+              <div className="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center">
                 <span className="font-extrabold text-base tracking-tighter bg-gradient-to-r from-purple-400 to-emerald-400 bg-clip-text text-transparent">
                   HK
                 </span>
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="text-base font-bold tracking-tight text-slate-900 dark:text-white group-hover:text-purple-500 dark:group-hover:text-purple-400 transition-colors">
+              <span className="text-base font-bold tracking-tight text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
                 Harshit Kumar
               </span>
               <span className="text-[11px] tracking-wide text-slate-500 dark:text-slate-400 -mt-1 font-mono">
@@ -109,7 +108,7 @@ export default function Navbar({ theme, toggleTheme }) {
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1 lg:gap-2 bg-slate-200/50 dark:bg-slate-900/60 p-1.5 rounded-full border border-slate-300/60 dark:border-slate-800/80 backdrop-blur-md">
+          <nav className="hidden md:flex items-center gap-1 lg:gap-2 bg-slate-100/90 dark:bg-slate-900/70 p-1.5 rounded-full border border-slate-200 dark:border-slate-800/80 backdrop-blur-md shadow-sm dark:shadow-none">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.replace('#', '')
               return (
@@ -120,7 +119,7 @@ export default function Navbar({ theme, toggleTheme }) {
                   className={`relative px-3.5 py-1.5 rounded-full text-xs lg:text-sm font-medium transition-all duration-200 ${
                     isActive
                       ? 'text-white font-semibold'
-                      : 'text-slate-600 dark:text-slate-300 hover:text-purple-600 dark:hover:text-white'
+                      : 'text-slate-700 dark:text-slate-300 hover:text-purple-600 dark:hover:text-white'
                   }`}
                 >
                   {isActive && (
@@ -136,7 +135,7 @@ export default function Navbar({ theme, toggleTheme }) {
             })}
           </nav>
 
-          {/* Actions: Theme Toggle & Resume / Contact CTA */}
+          {/* Actions: Theme Toggle & Contact CTA */}
           <div className="hidden md:flex items-center gap-3">
             <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
 
@@ -221,11 +220,11 @@ export default function Navbar({ theme, toggleTheme }) {
                     <i className="fa-solid fa-paper-plane text-xs"></i>
                   </a>
                   <a
-                    href="/resume.pdf"
+                    href={resumePdf}
                     download="Harshit_Kumar_Resume.pdf"
-                    className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-medium text-sm border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60"
+                    className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-medium text-sm border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors"
                   >
-                    <i className="fa-solid fa-file-arrow-down text-purple-400"></i>
+                    <i className="fa-solid fa-file-arrow-down text-purple-500 dark:text-purple-400"></i>
                     <span>Download Resume</span>
                   </a>
                 </div>

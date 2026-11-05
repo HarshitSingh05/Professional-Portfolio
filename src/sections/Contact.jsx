@@ -47,7 +47,7 @@ export default function Contact() {
     }
   }
 
-  const triggerMailtoFallback = (notice) => {
+  const triggerMailtoFallback = () => {
     const mailtoUrl = `mailto:${personalInfo.contact.email}?subject=${encodeURIComponent(
       `[Portfolio Inquiry] ${formData.subject}`
     )}&body=${encodeURIComponent(
@@ -73,11 +73,10 @@ export default function Contact() {
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
-    // If EmailJS env credentials are not configured, use mailto fallback directly
     if (!serviceId || !templateId || !publicKey || serviceId === 'your_service_id') {
       setTimeout(() => {
         triggerMailtoFallback()
-      }, 500)
+      }, 400)
       return
     }
 
@@ -103,7 +102,6 @@ export default function Contact() {
       })
       setFormData({ name: '', email: '', subject: '', message: '' })
     } catch (err) {
-      // In case EmailJS throws, fallback smoothly to mailto
       console.warn('EmailJS error, falling back to mailto:', err)
       triggerMailtoFallback()
     }
@@ -131,7 +129,7 @@ export default function Contact() {
             transition={{ duration: 0.5 }}
             className="lg:col-span-5 flex flex-col gap-6"
           >
-            <div className="glass-panel p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800">
+            <div className="glass-panel p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none">
               <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
                 Contact Information
               </h3>
@@ -143,14 +141,14 @@ export default function Contact() {
               <div className="space-y-4">
                 <a
                   href={`mailto:${personalInfo.contact.email}`}
-                  className="flex items-center gap-4 p-3.5 rounded-xl bg-slate-100/70 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 hover:border-purple-500/40 transition-colors group"
+                  className="flex items-center gap-4 p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 hover:border-purple-500/40 transition-colors group"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-500 dark:text-purple-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                  <div className="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                     <i className="fa-solid fa-envelope text-base"></i>
                   </div>
                   <div className="min-w-0">
-                    <div className="text-[11px] font-mono text-slate-400 uppercase tracking-wider">Email Address</div>
-                    <div className="text-sm font-semibold text-slate-900 dark:text-slate-200 truncate">
+                    <div className="text-[11px] font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider font-semibold">Email Address</div>
+                    <div className="text-sm font-bold text-slate-900 dark:text-slate-200 truncate">
                       {personalInfo.contact.email}
                     </div>
                   </div>
@@ -158,35 +156,35 @@ export default function Contact() {
 
                 <a
                   href={`tel:${personalInfo.contact.phone.replace(/[^0-9+]/g, '')}`}
-                  className="flex items-center gap-4 p-3.5 rounded-xl bg-slate-100/70 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 hover:border-emerald-500/40 transition-colors group"
+                  className="flex items-center gap-4 p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 hover:border-emerald-500/40 transition-colors group"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-500 dark:text-emerald-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                     <i className="fa-solid fa-phone text-base"></i>
                   </div>
                   <div className="min-w-0">
-                    <div className="text-[11px] font-mono text-slate-400 uppercase tracking-wider">Direct Phone</div>
-                    <div className="text-sm font-semibold text-slate-900 dark:text-slate-200 truncate">
+                    <div className="text-[11px] font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider font-semibold">Direct Phone</div>
+                    <div className="text-sm font-bold text-slate-900 dark:text-slate-200 truncate">
                       {personalInfo.contact.phone}
                     </div>
                   </div>
                 </a>
 
-                <div className="flex items-center gap-4 p-3.5 rounded-xl bg-slate-100/70 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80">
-                  <div className="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-500 dark:text-purple-400 flex items-center justify-center shrink-0">
+                <div className="flex items-center gap-4 p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80">
+                  <div className="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0">
                     <i className="fa-solid fa-location-dot text-base"></i>
                   </div>
                   <div className="min-w-0">
-                    <div className="text-[11px] font-mono text-slate-400 uppercase tracking-wider">Location</div>
-                    <div className="text-sm font-semibold text-slate-900 dark:text-slate-200">
+                    <div className="text-[11px] font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider font-semibold">Location</div>
+                    <div className="text-sm font-bold text-slate-900 dark:text-slate-200">
                       {personalInfo.contact.location}
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Social Profiles */}
+              {/* Professional Channels */}
               <div className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800">
-                <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500 block mb-3">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-3">
                   Professional Channels:
                 </span>
                 <div className="flex items-center gap-2.5">
@@ -194,7 +192,7 @@ export default function Contact() {
                     href={personalInfo.contact.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-medium bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 transition-colors"
+                    className="flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-300 border border-slate-200 dark:border-slate-800 transition-colors"
                   >
                     <i className="fa-brands fa-github text-sm"></i>
                     <span>GitHub</span>
@@ -204,9 +202,9 @@ export default function Contact() {
                     href={personalInfo.contact.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-medium bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 transition-colors"
+                    className="flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-300 border border-slate-200 dark:border-slate-800 transition-colors"
                   >
-                    <i className="fa-brands fa-linkedin-in text-sm text-blue-500"></i>
+                    <i className="fa-brands fa-linkedin-in text-sm text-blue-600 dark:text-blue-400"></i>
                     <span>LinkedIn</span>
                   </a>
 
@@ -214,7 +212,7 @@ export default function Contact() {
                     href={personalInfo.contact.leetcode}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-medium bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 transition-colors"
+                    className="flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-300 border border-slate-200 dark:border-slate-800 transition-colors"
                   >
                     <i className="fa-solid fa-code text-xs text-amber-500"></i>
                     <span>LeetCode</span>
@@ -243,13 +241,13 @@ export default function Contact() {
 
               {/* Success Notification */}
               {status.success && (
-                <div className="mb-6 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs sm:text-sm flex items-start gap-3">
+                <div className="mb-6 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 dark:text-emerald-400 text-xs sm:text-sm flex items-start gap-3">
                   <i className="fa-solid fa-circle-check text-base mt-0.5 shrink-0"></i>
                   <div>
-                    <div className="font-semibold">
+                    <div className="font-bold">
                       {status.usedFallback ? 'Mail Client Opened!' : 'Message Dispatched Successfully!'}
                     </div>
-                    <div className="mt-0.5 opacity-90">
+                    <div className="mt-0.5 opacity-90 font-medium">
                       {status.usedFallback
                         ? 'Your message was pre-filled in your default email client for instant dispatch.'
                         : 'Thank you for reaching out, Harshit will get back to you shortly.'}
@@ -265,27 +263,25 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5"
+                      className="block text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-slate-300 mb-1.5"
                     >
                       Your Name <span className="text-rose-500">*</span>
                     </label>
-                    <div className="relative">
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="e.g. Alex Morgan"
-                        className={`w-full px-4 py-2.5 rounded-xl text-sm bg-slate-100/90 dark:bg-slate-900/90 text-slate-900 dark:text-white placeholder-slate-400 border focus:outline-none focus:ring-2 transition-all ${
-                          errors.name
-                            ? 'border-rose-500 focus:ring-rose-500/30'
-                            : 'border-slate-300 dark:border-slate-800 focus:border-purple-500 focus:ring-purple-500/30'
-                        }`}
-                      />
-                    </div>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="e.g. Alex Morgan"
+                      className={`w-full px-4 py-2.5 rounded-xl text-sm bg-slate-50 dark:bg-slate-900/90 text-slate-900 dark:text-white placeholder-slate-400 border focus:outline-none focus:ring-2 transition-all ${
+                        errors.name
+                          ? 'border-rose-500 focus:ring-rose-500/30'
+                          : 'border-slate-300 dark:border-slate-800 focus:border-purple-500 focus:ring-purple-500/30'
+                      }`}
+                    />
                     {errors.name && (
-                      <p className="mt-1 text-xs text-rose-500 flex items-center gap-1">
+                      <p className="mt-1 text-xs text-rose-500 flex items-center gap-1 font-medium">
                         <i className="fa-solid fa-circle-exclamation text-[10px]"></i>
                         <span>{errors.name}</span>
                       </p>
@@ -295,27 +291,25 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5"
+                      className="block text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-slate-300 mb-1.5"
                     >
                       Your Email <span className="text-rose-500">*</span>
                     </label>
-                    <div className="relative">
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="alex@example.com"
-                        className={`w-full px-4 py-2.5 rounded-xl text-sm bg-slate-100/90 dark:bg-slate-900/90 text-slate-900 dark:text-white placeholder-slate-400 border focus:outline-none focus:ring-2 transition-all ${
-                          errors.email
-                            ? 'border-rose-500 focus:ring-rose-500/30'
-                            : 'border-slate-300 dark:border-slate-800 focus:border-purple-500 focus:ring-purple-500/30'
-                        }`}
-                      />
-                    </div>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="alex@example.com"
+                      className={`w-full px-4 py-2.5 rounded-xl text-sm bg-slate-50 dark:bg-slate-900/90 text-slate-900 dark:text-white placeholder-slate-400 border focus:outline-none focus:ring-2 transition-all ${
+                        errors.email
+                          ? 'border-rose-500 focus:ring-rose-500/30'
+                          : 'border-slate-300 dark:border-slate-800 focus:border-purple-500 focus:ring-purple-500/30'
+                      }`}
+                    />
                     {errors.email && (
-                      <p className="mt-1 text-xs text-rose-500 flex items-center gap-1">
+                      <p className="mt-1 text-xs text-rose-500 flex items-center gap-1 font-medium">
                         <i className="fa-solid fa-circle-exclamation text-[10px]"></i>
                         <span>{errors.email}</span>
                       </p>
@@ -327,7 +321,7 @@ export default function Contact() {
                 <div>
                   <label
                     htmlFor="subject"
-                    className="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5"
+                    className="block text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-slate-300 mb-1.5"
                   >
                     Subject <span className="text-rose-500">*</span>
                   </label>
@@ -338,14 +332,14 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={handleChange}
                     placeholder="Full Stack Opportunity / Technical Inquiry"
-                    className={`w-full px-4 py-2.5 rounded-xl text-sm bg-slate-100/90 dark:bg-slate-900/90 text-slate-900 dark:text-white placeholder-slate-400 border focus:outline-none focus:ring-2 transition-all ${
+                    className={`w-full px-4 py-2.5 rounded-xl text-sm bg-slate-50 dark:bg-slate-900/90 text-slate-900 dark:text-white placeholder-slate-400 border focus:outline-none focus:ring-2 transition-all ${
                       errors.subject
                         ? 'border-rose-500 focus:ring-rose-500/30'
                         : 'border-slate-300 dark:border-slate-800 focus:border-purple-500 focus:ring-purple-500/30'
                     }`}
                   />
                   {errors.subject && (
-                    <p className="mt-1 text-xs text-rose-500 flex items-center gap-1">
+                    <p className="mt-1 text-xs text-rose-500 flex items-center gap-1 font-medium">
                       <i className="fa-solid fa-circle-exclamation text-[10px]"></i>
                       <span>{errors.subject}</span>
                     </p>
@@ -356,7 +350,7 @@ export default function Contact() {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5"
+                    className="block text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-slate-300 mb-1.5"
                   >
                     Message <span className="text-rose-500">*</span>
                   </label>
@@ -367,14 +361,14 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Hi Harshit, I came across your portfolio and would like to discuss..."
-                    className={`w-full px-4 py-2.5 rounded-xl text-sm bg-slate-100/90 dark:bg-slate-900/90 text-slate-900 dark:text-white placeholder-slate-400 border focus:outline-none focus:ring-2 transition-all resize-none ${
+                    className={`w-full px-4 py-2.5 rounded-xl text-sm bg-slate-50 dark:bg-slate-900/90 text-slate-900 dark:text-white placeholder-slate-400 border focus:outline-none focus:ring-2 transition-all resize-none ${
                       errors.message
                         ? 'border-rose-500 focus:ring-rose-500/30'
                         : 'border-slate-300 dark:border-slate-800 focus:border-purple-500 focus:ring-purple-500/30'
                     }`}
                   ></textarea>
                   {errors.message && (
-                    <p className="mt-1 text-xs text-rose-500 flex items-center gap-1">
+                    <p className="mt-1 text-xs text-rose-500 flex items-center gap-1 font-medium">
                       <i className="fa-solid fa-circle-exclamation text-[10px]"></i>
                       <span>{errors.message}</span>
                     </p>

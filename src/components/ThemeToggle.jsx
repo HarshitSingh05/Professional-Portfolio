@@ -33,3 +33,4 @@ export default function ThemeToggle({ theme, toggleTheme, className = '' }) {
     </button>
   )
 }
+

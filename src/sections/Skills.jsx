@@ -40,10 +40,10 @@ export default function Skills() {
                 key={tab.id}
                 type="button"
                 onClick={() => setSelectedFilter(tab.id)}
-                className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 ${
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 ${
                   isActive
-                    ? 'bg-gradient-to-r from-purple-600 to-emerald-500 text-white shadow-md shadow-purple-600/20 font-semibold'
-                    : 'bg-slate-100 dark:bg-slate-900/80 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'
+                    ? 'bg-gradient-to-r from-purple-600 to-emerald-500 text-white shadow-md shadow-purple-600/20'
+                    : 'bg-white dark:bg-slate-900/80 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none'
                 }`}
               >
                 <i className={`${tab.icon} text-xs`}></i>
@@ -66,17 +66,17 @@ export default function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-12 p-6 rounded-2xl glass-panel border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left"
+          className="mt-12 p-6 rounded-2xl glass-panel border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-sm dark:shadow-none"
         >
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center shrink-0 text-xl">
+            <div className="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0 text-xl">
               <i className="fa-solid fa-lightbulb"></i>
             </div>
             <div>
               <h4 className="font-bold text-slate-900 dark:text-white text-sm sm:text-base">
                 Engineering Philosophy: Reusable, Tested &amp; Scalable
               </h4>
-              <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-0.5">
                 Every technology is chosen to deliver measurable business outcomes, zero security loopholes, and seamless maintainability.
               </p>
             </div>
@@ -84,7 +84,7 @@ export default function Skills() {
 
           <a
             href="#projects"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700/80 text-slate-900 dark:text-white border border-slate-300 dark:border-slate-700 shrink-0 transition-colors"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold bg-white hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700/80 text-slate-900 dark:text-white border border-slate-300 dark:border-slate-700 shadow-sm shrink-0 transition-colors"
           >
             <span>See Them in Action</span>
             <i className="fa-solid fa-arrow-down text-xs"></i>

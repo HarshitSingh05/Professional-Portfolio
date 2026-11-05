@@ -10,24 +10,24 @@ export default function ProjectCard({ project, onSelect, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="glass-panel rounded-2xl p-6 sm:p-7 border border-slate-200 dark:border-slate-800/80 hover:border-purple-500/30 transition-all duration-300 flex flex-col justify-between group relative"
+      className="glass-panel rounded-2xl p-6 sm:p-7 border border-slate-200 dark:border-slate-800/80 hover:border-purple-500/40 transition-all duration-300 flex flex-col justify-between group relative shadow-sm dark:shadow-none"
     >
       <div>
         {/* Top Header: Category & Privacy/Featured Badges */}
         <div className="flex items-center justify-between gap-2 mb-4">
           <div className="flex items-center gap-2">
             <span
-              className={`px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider ${
+              className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
                 isPurple
-                  ? 'bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20'
-                  : 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20'
+                  ? 'bg-purple-500/10 text-purple-700 dark:text-purple-300 border border-purple-500/20'
+                  : 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20'
               }`}
             >
               {project.category}
             </span>
 
             {project.featured && (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-amber-500/10 text-amber-500 border border-amber-500/20">
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-bold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
                 <i className="fa-solid fa-star text-[10px]"></i>
                 Featured
               </span>
@@ -37,15 +37,15 @@ export default function ProjectCard({ project, onSelect, index }) {
           {project.isConfidential ? (
             <span
               title="Enterprise Production Codebase (Proprietary)"
-              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-medium bg-slate-100 dark:bg-slate-800/90 text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-slate-700/60"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-medium bg-slate-100 dark:bg-slate-800/90 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700/60"
             >
-              <i className="fa-solid fa-lock text-[10px] text-amber-400"></i>
+              <i className="fa-solid fa-lock text-[10px] text-amber-500"></i>
               <span>Enterprise</span>
             </span>
           ) : (
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-medium bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-medium bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">
               <i className="fa-solid fa-code-branch text-[10px]"></i>
-              <span>Open Source</span>
+              <span>Public Code</span>
             </span>
           )}
         </div>
@@ -55,37 +55,37 @@ export default function ProjectCard({ project, onSelect, index }) {
           <div
             className={`w-10 h-10 rounded-xl flex items-center justify-center text-base shrink-0 mt-0.5 ${
               isPurple
-                ? 'bg-purple-500/10 text-purple-500 dark:text-purple-400'
-                : 'bg-emerald-500/10 text-emerald-500 dark:text-emerald-400'
+                ? 'bg-purple-500/10 text-purple-600 dark:text-purple-400'
+                : 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400'
             }`}
           >
             <i className={project.icon}></i>
           </div>
 
-          <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-purple-500 dark:group-hover:text-purple-400 transition-colors leading-snug">
+          <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors leading-snug">
             {project.title}
           </h3>
         </div>
 
         {/* Tagline / Subtitle */}
-        <p className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 mb-3">
+        <p className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-300 mb-3">
           {project.tagline}
         </p>
 
         {/* Description */}
-        <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-5">
+        <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-5">
           {project.description}
         </p>
 
         {/* Highlight Metrics */}
         {project.metrics && project.metrics.length > 0 && (
-          <div className="grid grid-cols-3 gap-2 mb-5 p-2.5 rounded-xl bg-slate-100/70 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
+          <div className="grid grid-cols-3 gap-2 mb-5 p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
             {project.metrics.map((metric) => (
               <div key={metric.label} className="text-center">
-                <div className="text-xs sm:text-sm font-bold text-purple-600 dark:text-emerald-400">
+                <div className="text-xs sm:text-sm font-extrabold text-purple-600 dark:text-emerald-400">
                   {metric.value}
                 </div>
-                <div className="text-[10px] text-slate-500 dark:text-slate-400 truncate">
+                <div className="text-[10px] text-slate-500 dark:text-slate-400 truncate font-medium">
                   {metric.label}
                 </div>
               </div>
@@ -96,8 +96,8 @@ export default function ProjectCard({ project, onSelect, index }) {
         {/* Key Features Bullet List */}
         <div className="space-y-1.5 mb-5">
           {project.features.slice(0, 3).map((feat, i) => (
-            <div key={i} className="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-400">
-              <i className="fa-solid fa-check text-emerald-400 text-[10px] mt-1 shrink-0"></i>
+            <div key={i} className="flex items-start gap-2 text-xs text-slate-700 dark:text-slate-400">
+              <i className="fa-solid fa-check text-emerald-600 dark:text-emerald-400 text-[10px] mt-1 shrink-0"></i>
               <span className="line-clamp-2">{feat}</span>
             </div>
           ))}
@@ -110,7 +110,7 @@ export default function ProjectCard({ project, onSelect, index }) {
           {project.technologies.map((tech) => (
             <span
               key={tech}
-              className="px-2 py-0.5 rounded-md text-[11px] font-mono font-medium bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800"
+              className="px-2 py-0.5 rounded-md text-[11px] font-mono font-medium bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-slate-300 border border-slate-200 dark:border-slate-800"
             >
               {tech}
             </span>
@@ -133,7 +133,7 @@ export default function ProjectCard({ project, onSelect, index }) {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-xl flex items-center justify-center bg-slate-100 hover:bg-slate-200 dark:bg-slate-900/90 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 transition-colors shrink-0"
+              className="w-10 h-10 rounded-xl flex items-center justify-center bg-white hover:bg-slate-100 dark:bg-slate-900/90 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 transition-colors shrink-0 shadow-sm dark:shadow-none"
               title="View Repository"
               aria-label={`View GitHub repository for ${project.title}`}
             >
@@ -141,10 +141,10 @@ export default function ProjectCard({ project, onSelect, index }) {
             </a>
           ) : (
             <div
-              className="w-10 h-10 rounded-xl flex items-center justify-center bg-slate-100/60 dark:bg-slate-900/40 text-slate-400 border border-slate-200/60 dark:border-slate-800/60 shrink-0 cursor-not-allowed"
+              className="w-10 h-10 rounded-xl flex items-center justify-center bg-slate-100 dark:bg-slate-900/40 text-slate-400 border border-slate-200 dark:border-slate-800/60 shrink-0 cursor-not-allowed"
               title="Enterprise Production Codebase (Proprietary - Not Publicly Hosted)"
             >
-              <i className="fa-solid fa-lock text-xs text-amber-400"></i>
+              <i className="fa-solid fa-lock text-xs text-amber-500"></i>
             </div>
           )}
         </div>

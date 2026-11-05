@@ -5,14 +5,14 @@ import { experiences } from '../data/experience'
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-20 md:py-28 relative overflow-hidden bg-slate-900/30 dark:bg-slate-950/40">
+    <section id="experience" className="py-20 md:py-28 relative overflow-hidden bg-slate-50/60 dark:bg-slate-950/40">
       {/* Background Glow */}
       <div className="absolute left-0 top-1/3 w-80 h-80 bg-emerald-500/5 dark:bg-emerald-500/10 rounded-full blur-[90px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="Work Experience"
-          title="Professional Journey & Engineering Impact"
+          title="Professional Journey &amp; Engineering Impact"
           subtitle="Real-world experience delivering mission-critical multi-tenant SaaS features, robust APIs, and high-performance database architectures."
         />
 
@@ -31,12 +31,12 @@ export default function Experience() {
                 className="relative flex flex-col sm:flex-row gap-6 sm:gap-10 items-start"
               >
                 {/* Timeline Icon Node */}
-                <div className="hidden sm:flex shrink-0 items-center justify-center w-16 h-16 rounded-2xl bg-slate-900 border border-purple-500/30 text-purple-400 shadow-lg shadow-purple-900/20 z-10">
+                <div className="hidden sm:flex shrink-0 items-center justify-center w-16 h-16 rounded-2xl bg-white dark:bg-slate-900 border border-purple-500/30 text-purple-600 dark:text-purple-400 shadow-md shadow-purple-900/10 z-10">
                   <i className={`fa-solid ${exp.id === 'appfoster' ? 'fa-building-user' : 'fa-server'} text-xl`}></i>
                 </div>
 
                 {/* Experience Content Card */}
-                <div className="flex-1 w-full glass-panel p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 relative group hover:border-purple-500/30 transition-all duration-300">
+                <div className="flex-1 w-full glass-panel p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 relative group hover:border-purple-500/40 transition-all duration-300 shadow-sm dark:shadow-none">
                   
                   {/* Top Bar: Role, Company & Meta */}
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-slate-200 dark:border-slate-800">
@@ -45,40 +45,40 @@ export default function Experience() {
                         <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
                           {exp.role}
                         </h3>
-                        <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20">
+                        <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-700 dark:text-purple-300 border border-purple-500/20">
                           {exp.badge}
                         </span>
                       </div>
                       <div className="text-base font-semibold text-purple-600 dark:text-purple-400 mt-1 flex items-center gap-2">
                         <span>{exp.company}</span>
                         <span className="text-slate-400 text-xs">•</span>
-                        <span className="text-xs text-slate-500 dark:text-slate-400 font-normal">
+                        <span className="text-xs text-slate-600 dark:text-slate-400 font-normal">
                           <i className="fa-solid fa-location-dot mr-1"></i>
                           {exp.location}
                         </span>
                       </div>
                     </div>
 
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-600 dark:text-slate-400 self-start sm:self-auto">
-                      <i className="fa-regular fa-calendar-check text-emerald-500"></i>
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-700 dark:text-slate-400 self-start sm:self-auto font-medium">
+                      <i className="fa-regular fa-calendar-check text-emerald-600 dark:text-emerald-400"></i>
                       <span>{exp.duration}</span>
                     </div>
                   </div>
 
                   {/* Summary */}
-                  <p className="mt-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+                  <p className="mt-4 text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
                     {exp.summary}
                   </p>
 
                   {/* Key Contributions & Achievements */}
                   <div className="mt-5 space-y-2.5">
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                       Key Contributions &amp; Engineering Scope:
                     </h4>
                     <ul className="space-y-2">
                       {exp.keyPoints.map((point, i) => (
-                        <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+                        <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400 shrink-0"></span>
                           <span>{point}</span>
                         </li>
                       ))}
@@ -87,13 +87,13 @@ export default function Experience() {
 
                   {/* Technology Stack Pills */}
                   <div className="mt-6 pt-5 border-t border-slate-200 dark:border-slate-800 flex flex-wrap gap-2 items-center">
-                    <span className="text-xs font-semibold text-slate-400 dark:text-slate-500 mr-1">
+                    <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 mr-1">
                       Tech:
                     </span>
                     {exp.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-100 dark:bg-slate-900/80 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800"
+                        className="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-100 dark:bg-slate-900/80 text-slate-800 dark:text-slate-300 border border-slate-200 dark:border-slate-800"
                       >
                         {tech}
                       </span>
