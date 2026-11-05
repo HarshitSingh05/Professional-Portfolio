@@ -85,8 +85,11 @@ export default function Contact() {
         serviceId,
         templateId,
         {
+          name: formData.name,
           from_name: formData.name,
+          email: formData.email,
           from_email: formData.email,
+          reply_to: formData.email,
           subject: formData.subject,
           message: formData.message,
           to_email: personalInfo.contact.email
